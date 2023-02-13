@@ -1,6 +1,15 @@
 # InternalSystem
 內部系統
 
+"# InternalSystem"
+
+
+
+Video demo link:
+https://sendvid.com/yuj15gxe
+
+
+
 
 ★BMW 內部系統 功能描述 
 1.人事系統: 員工請假查詢及修改、加班查詢及修改、個人資料修改、員工出勤查詢、員工查詢 。 2.個人系統:員工請假申請、員工加班申請、個人資料查看及修改、個人加班、請假、出勤查詢、打 卡系統 。 
