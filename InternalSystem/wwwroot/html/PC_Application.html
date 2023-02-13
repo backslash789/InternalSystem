@@ -498,24 +498,42 @@
                             </div>
                         </div>
         <!-- 頁面中間上面輸出 -->
-        <h4 class="fw-bold py-3 mb-4 mx-4"><span class="text-muted fw-light"></span>採購部門申請表</h4>
+        <span class="fs-4">採購系統 / </span><span class=" fw-bold fs-2">採購申請表</span>
 
-        <div class="row col-md-12">
+        <div class="col-md-12">
             <!--本頁內容 -->
-            <div class="card mb-4 m-4 mx-4">
+            <div class="card mb-4 m-4">
+                <!-- 卡片標題 -->
+                <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
+                    <div class="col-1 my-2 mb-3" style="width: 70px;">
+                        <img src="../assets/img/myicon/order.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                    </div>
+                    <div class="col-6 my-2 mb-3">
+                        <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">採購申請表</h2>
+                    </div>
+                </div>
+            
                 <!-- 員工名稱 -->
                 <div class="card-body">
                     <form id="formAccountSettings" method="POST" onsubmit="return false">
-                        <div class="row mt-4">
+                    <br>
+                    <div class="my-4 mx-4 border border-5 rounded" style="position: relative;">
+                        <!-- 篩選樣板 -->
+                        <p class="badge rounded-pill bg-secondary fs-3 mb-1 fw-bold col-2"
+                            style="position: absolute;top: -25px;left: 20px;">
+                            採購申請</p>
+                            
+                        <div class="row mt-4 mx-4">
+                            <div class="mt-1">&nbsp;</div>
                             <div class="mb-3 col-md-6">
                                 <label for="firstName" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">員工名稱</label>
-                                <input class="form-control fs-5" type="text" id="firstName" name="firstName" readonly
+                                <input class="form-control fs-4 fw-bold" type="text" id="firstName" name="firstName" readonly
                                     v-model="employeedata.Name" autofocus />
                             </div>
                             <!-- 部門選擇 -->
                             <div class="mb-3 col-md-6">
                                 <label for="department" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">部門</label>
-                                <input class="form-control fs-5" type="text" id="department" name="department" readonly
+                                <input class="form-control fs-4 fw-bold" type="text" id="department" name="department" readonly
                                     v-model="employeedata.Depment" autofocus />
                             </div>
                             <!-- 申請日期 -->
@@ -523,27 +541,27 @@
                                 <label for="ApplicationDate"
                                     class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">申請日期</label>
                                 <div class="col-md-12">
-                                    <input class="form-control fs-5" type="date" id="ApplicationDate" v-model="item.date" />
+                                    <input class="form-control fs-5 fw-bold" type="date" id="ApplicationDate" v-model="item.date" />
                                 </div>
                             </div>
                             <!-- 採購單號 -->
                             <div class="mb-3 col-md-6">
                                 <label for="PurchaseID" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">採購單號</label>
-                                <input class="form-control fs-5" type="text" id="PurchaseID" name="PurchaseID"
+                                <input class="form-control fs-4 fw-bold" type="text" id="PurchaseID" name="PurchaseID"
                                     v-model="employeedata.purchaseId" autofocus />
                             </div>
                             <!-- 備註 -->
                             <div class="mb-3 col-md-6">
                                 <label for="Comment" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">備註</label>
-                                <input class="form-control fs-5" type="text" id="Comment" name="Comment" v-model="item.comment"
+                                <input class="form-control fs-4 fw-bold" type="text" id="Comment" name="Comment" v-model="item.comment"
                                     placeholder="" />
                             </div>
                         </div>
+                    </div>
                             <!-- 採購清單 -->
                             <!--部門專用-->
-                            <div class="my-2"></div>
-                            <p class="fs-2 my-5 fw-bold ms-2" style="border-left: 15pt solid #666EE8;border-radius: 5px;">&nbsp
-                                採購部門專用項目</p>
+                            <div class="my-2">&nbsp;</div>
+                                <p class="alert alert-warning text-black fs-2 fw-bold mb-5">部門專用項目</p>
                                 <div class="border border-5 shadow rounded  mx-5">
                                 <table class="table table-striped table-hover">
                                     <thead class="bg-black">
@@ -567,7 +585,7 @@
                                                     <strong>A{{index+1}}</strong>
                                                 </td>
                                                 <!-- 物品名稱 -->
-                                                <td class="fs-5 text-center">
+                                                <td class="fs-5 text-center fw-bold">
                                                     {{b.goods}}
                                                     <!--<input disabled  v-model="b.goods">-->
                                                 </td>
@@ -579,7 +597,7 @@
                                                             <label for="數量"
                                                                 class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold"></label>
                                                             <input @change="addorder(b) ; getprice()" type="text"
-                                                                class="form-control fs-5" id="inputunit" placeholder="請輸入數量"
+                                                                class="form-control fs-5 fw-blod" id="inputunit" placeholder="請輸入數量"
                                                                 v-model="b.quantiy">
                                                             <!--<input @change="getprice" type="text" class="form-control fs-5" id="inputunit" placeholder="請輸入數量" v-else v-model="b.quantiy">-->
                                                         </div>
@@ -587,12 +605,12 @@
                                                 </td>
                                                 <!-- 單位 -->
                                                 <td class="fs-4 text-center">
-                                                    <span id="number" class="badge bg-label-primary me-1">{{b.unit}}</span>
+                                                    <span id="number" class="badge bg-label-primary me-1 fw-bold">{{b.unit}}</span>
                                                 </td>
                                                 <!-- 單價 -->
                                                 <td class="fs-5 text-center">
                                                     <div class="dropdown">
-                                                        <span id="Unit_price">
+                                                        <span id="Unit_price"  class="fs-5 fw-bold my-1">
                                                             {{b.unitPrice}}元
                                                             <!--<input disabled v-model="b.unitPrice">-->
         
@@ -603,7 +621,7 @@
                                                 <td class="fs-5 text-center">
                                                     <div class="dropdown">
                                                         <div>
-                                                            <p id="total">{{b.quantiy*b.unitPrice || 0}}元</p>
+                                                            <p id="total" class="fs-5 fw-bold my-1">{{b.quantiy*b.unitPrice || 0}}元</p>
                                                             <!--<input disabled v-model="b.subTotal">-->
         
                                                         </div>
@@ -614,10 +632,9 @@
                                     </tbody>
                                 </table>
                                 </div>
-                            <div class="my-4"></div>
+                            <div class="my-4">&nbsp;</div>
                             <!--通用-->
-                            <p class="fs-2 my-5 fw-bold ms-2" style="border-left: 15pt solid #666EE8;border-radius: 5px;">&nbsp
-                                採購通用項目</p>
+                            <p class="alert alert-warning text-black fs-2 fw-bold mb-5">採購通用項目</p>
                             <!-- 表格 -->
                             <div class="border border-5 shadow rounded  mx-5">
                                 <table class="table table-striped table-hover">
@@ -637,14 +654,13 @@
         
                                                 <!-- 物品 -->
                                                 <!-- 項次 -->
-                                                <td class="fs-5 text-center">
+                                                <td class="fs-5 text-center ">
                                                     <i class="fab fa-angular fa-lg text-danger"></i>
                                                     <strong>A{{index+1}}</strong>
                                                 </td>
                                                 <!-- 物品名稱 -->
-                                                <td class="fs-5 text-center">
-                                                    {{b.goods}}
-                                                    <!--<input disabled  v-model="b.goods">-->
+                                                <td class="fs-5 fw-blod text-center  ">
+                                                    <strong>{{b.goods}}</strong>
                                                 </td>
                                                 <!-- 物品數量 -->
                                                 <td class="fs-5 text-center">
@@ -654,23 +670,20 @@
                                                             <label for="數量"
                                                                 class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold"></label>
                                                             <input @change="addorder(b) ; getprice()" type="text"
-                                                                class="form-control fs-5" id="inputunit" placeholder="請輸入數量"
+                                                                class="form-control fs-5 "  id="inputunit" placeholder="請輸入數量"
                                                                 v-model="b.quantiy">
-                                                            <!--<input @change="getprice" type="text" class="form-control fs-5" id="inputunit" placeholder="請輸入數量" v-else v-model="b.quantiy">-->
                                                         </div>
                                                     </ul>
                                                 </td>
                                                 <!-- 單位 -->
                                                 <td class="fs-4 text-center">
-                                                    <span id="number" class="badge bg-label-primary me-1">{{b.unit}}</span>
+                                                    <span id="number" class="badge bg-label-primary me-1 fw-bold">{{b.unit}}</span>
                                                 </td>
                                                 <!-- 單價 -->
                                                 <td class="fs-5 text-center">
-                                                    <div class="dropdown">
+                                                    <div class="dropdown fw-bold">
                                                         <span id="Unit_price">
                                                             {{b.unitPrice}}元
-                                                            <!--<input disabled v-model="b.unitPrice">-->
-        
                                                         </span>
                                                     </div>
                                                 </td>
@@ -678,9 +691,7 @@
                                                 <td class="fs-5 text-center">
                                                     <div class="dropdown">
                                                         <div>
-                                                            <p id="total">{{b.quantiy*b.unitPrice || 0}}元</p>
-                                                            <!--<input disabled v-model="b.subTotal">-->
-        
+                                                            <p id="total " class="fw-bold my-1">{{b.quantiy*b.unitPrice || 0}}元</p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -695,7 +706,7 @@
                                 </div>
                             <!-- 確認按鈕 -->
                             <div class="mt-2 d-flex flex-row-reverse bd-highlight">
-                                <button type="button" v-on:click="createbtn" class="btn btn-primary me-3">送出</button>
+                                <button type="button" v-on:click="createbtn" class="btn btn-primary me-3 fw-bold fs-4">送出</button>
                                 <button type="reset" class="btn btn-secondary fs-4 fw-bold border-3 me-3 ">取消</button>                       
                             </div>
         
@@ -852,6 +863,7 @@
                             }
                         },
                         mounted() {
+                 
                             // 接上一頁的session
                             this.employeedata = JSON.parse(sessionStorage.getItem("LoginInf"));
                             //console.log(this.employeedata)
@@ -862,9 +874,6 @@
                             this.item.purchaseId = parseInt(this.autopurchaseid);
                             this.item.employeeId = this.employeedata.EmpID;
                             this.item.department = this.employeedata.Depment;
-                            //this.item.comment = "";
-                            //this.item.applicationrejectreason = "";
-                            //this.item.deliveryrejectreason = "";
                             this.item.total = 0;
                             //預設物品審核狀態
                             this.item.applicationStatus = false;
@@ -874,10 +883,7 @@
                             this.item.acceptanceStatus = false;
                             this.item.acceptanceRejectStatus = false;
 
-
                             //console.log(this.item.purchaseId);
-
-
                             //預設單價+小計為0
                             //this.product.quantiy = 0;
                             //this.product.subtotal = 0;
@@ -887,15 +893,6 @@
                                 .then(response => {
                                     this.product = response.data;
                                     //console.log(this.product);
-
-                                    for (var i = 0; i < this.product.length; i++) {
-                                        //this.PcOrderDetails[i] = this.product[i];
-                                        //this.product[i].quantiy = 0;
-                                        //this.PcOrderDetails[i].subtotal = 0;
-                                        //this.item.PcOrderDetails = this.PcOrderDetails[i].quantiy;
-                                        //this.item.PcOrderDetails = this.PcOrderDetails[i].subtotal;
-                                    };
-                                    //console.log(this.product)
                                     this.item.PcOrderDetails = this.text;
                                     //console.log(this.item);
                                 })

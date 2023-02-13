@@ -292,7 +292,7 @@
                         </ul>
                     </li>
 
-                    <!-- 採購系統 -->
+                       <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
                     </li>
@@ -308,6 +308,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -317,11 +322,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -453,8 +458,7 @@
                                 ❌&nbsp;{{text}}
                             </div>
                         </div>
-                        
-                        <h4 class="fw-bold py-4 ms-4"> 請假資料查詢</h4>
+                        <span class="fs-4">請假/加班申請 / </span><span class=" fw-bold fs-2">請假資料查詢</span>
                         <div class="card m-4 my-4">
                             <!-- 卡片標題 -->
                             <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
@@ -480,7 +484,7 @@
                                     <div class="col d-flex mt-5 mb-4 mx-4">
                                         <label for="html5-month-input" class="badge rounded-pill bg-primary fs-4 fw-bold mylLable">請假月份</label>
                                         <div class="col-3 ms-2">
-                                            <input class="form-control fs-5 myinput" type="month" v-model="leavesearch.month" id="html5-month-input" />
+                                            <input class="form-control fs-5 myinput" type="month" v-model="leavesearch.month" id="html5-month-input" @click="date"/>
                                         </div>
                                         <div class="col ms-5">
                                             <button type="button" @click="searchbtn" class="btn btn-outline-primary me-3 fs-4 fw-bold border-3">查詢</button>
@@ -508,8 +512,8 @@
                                     </thead>
                                     <tbody class="table-border-bottom-0" v-for="item in leavelist">
                                         <tr>
-                                            <td><strong class="fs-5 fw-bold">{{item.employeeName}}</strong></td>
-                                            <td class="fs-5 fw-bold">{{item.employeeNumber}}</td>
+                                            <td><strong class="fs-4 fw-bold">{{item.employeeName}}</strong></td>
+                                            <td class="fs-4 fw-bold">{{item.employeeNumber}}</td>
                                             <td>
                                                 <span class="fs-5 fw-bold">{{item.startDate}} - {{item.startTime}}</span>
                                             </td>
@@ -547,7 +551,7 @@
                                     </li>-->
                                 </ul>
                             </nav>
-                                <span v-if="page!=0" class="fs-5 justify-content-center d-flex" >第{{nowpage}}頁/共{{page}}頁</span>
+                                <span v-if="page!=0" class="fs-5 fs-4 fw-bold  justify-content-center d-flex" >第{{nowpage}}頁/共{{page}}頁</span>
 
                         <!--/ Basic Bootstrap Table -->
                         </div>
@@ -602,6 +606,9 @@
                 }
             },
             methods: {
+                date: function () {
+                    this.leavesearch.month ="2023-02"
+                },
                 searchbtn: function () {
 
                     this.employeedata = JSON.parse(sessionStorage.getItem("LoginInf"));

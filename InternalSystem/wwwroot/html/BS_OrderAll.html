@@ -295,6 +295,7 @@
                     </li>
 
                     <!-- 採購系統 -->
+                    <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
                     </li>
@@ -310,6 +311,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -319,11 +325,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -440,7 +446,7 @@
                         <div class="container-xxl flex-grow-1 container-p-y">
 
                             <span class="fs-4">業務系統 / </span><span class=" fw-bold fs-2">訂單總覽</span>
-                            <div class="card mb-4 m-4">
+                            <div class="card mb-4 m-6">
                                 <!-- 卡片標題 -->
                                 <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
                                     <div class="col-1 my-2 mb-3" style="width: 70px;">
@@ -508,18 +514,18 @@
                                 </div>
                             </div>
 
-                            <div class="card mb-4 m-4">
-                                <div id="accordall" class="d-flex bg-dark" style="border-radius: 10px 10px 0px 0px;">
-                                    <span class="card-header fw-bold col-2 fs-4 fw-bold text-white text-center" >訂單編號</span>
-                                    <span class="card-header fw-bold col-2 fs-4 fw-bold text-white text-center" >車款</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >建單時間</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >修單時間</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >代理商區域</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >接單狀態</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >當前廠區</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >當前製程</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >已用時長</span>
-                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" >剩餘時間</span>
+                            <div class="card mb-4 m-6">
+                                <div class="d-flex bg-dark" style="border-radius: 10px 10px 0px 0px;">
+                                    <span class="card-header fw-bold col-3 fs-4 fw-bold text-white text-center" style="width: 250px;">訂單編號</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 200px;">車款</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 140px;">建單時間</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 100px;">修單時間</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 130px;">代理商區域</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 100px;">接單狀態</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 100px;">當前廠區</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 100px;">當前製程</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 140px;">已用時長</span>
+                                    <span class="card-header fw-bold col-1 fs-4 fw-bold text-white text-center" style="width: 100px;">剩餘時間</span>
                                 </div>
 
                                 <!-- / Content -->
@@ -535,16 +541,16 @@
                                                         aria-expanded="true"
                                                         aria-controls="accordionOne"
                                                         style="height: 80px;">
-                                                    <strong class="col-2 fs-6 text-center my-1 ">#{{key+1}}/&nbsp;&nbsp;{{o.orderNumber}}</strong>
-                                                    <strong class="col-2 fs-6 text-center my-1 ">{{o.detail[0].optionalName.substring(4)}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{o.orderDateTime.substring(0,16).replace('T', ' ')}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{(o.editDatetime==null)? 'N/A' : o.editDatetime.substring(0,16).replace('T', ' ')}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{o.areaName}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{o.isAccepted==1 ? '是':'否'}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{(o.pparea=='N/A'||o.pparea==null)?'尚未指派':o.pparea.substring(2)}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{(o.ppname=='N/A'||o.ppname==null)?'尚未指派':o.ppname}}</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{dt.elapsed[key]}}天</strong>
-                                                    <strong class="col-1 fs-6 text-center my-1 ">{{dt.eta[key]}}</strong>
+                                                    <strong class="col-2 fs-5 text-center my-1 ">#{{key+1}}/&nbsp;&nbsp;{{o.orderNumber}}</strong>
+                                                    <strong class="col-2 fs-5 text-center my-1 ">{{o.detail[0].optionalName.substring(4)}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{o.orderDateTime.substring(0,16).replace('T', ' ')}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{(o.editDatetime==null)? 'N/A' : o.editDatetime.substring(0,16).replace('T', ' ')}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{o.areaName}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{o.isAccepted==1 ? '是':'否'}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{(o.pparea=='N/A'||o.pparea==null)?'尚未指派':o.pparea.substring(2)}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{(o.ppname=='N/A'||o.ppname==null)?'尚未指派':o.ppname}}</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{dt.elapsed[key]}}天</strong>
+                                                    <strong class="col-1 fs-5 text-center my-1 ">{{dt.eta[key]}}</strong>
                                                 </button>
                                             </h2>
 
@@ -583,8 +589,22 @@
                         <!-- Overlay -->
                         <div class="layout-overlay layout-menu-toggle"></div>
                     </div>
-                        <p v-if="limit.DepID!=3" class="fw-bold mx-2 fs-1 justify-content-center d-flex" style="text-decoration: 4pt #666EE8;">非業務部門無法查看</p>
 
+                        <div v-if="limit.DepID!=3" class="mt-5">
+                            <div class="d-flex justify-content-center my-4 mt-0">
+                                <h2 class="mx-2 fw-bold" style="font-size: 50px;">非業務部門無法查看</h2>
+                            </div>
+                        
+                            <div class="d-flex justify-content-center">
+                                <img src="../assets/img/illustrations/page-misc-error-light.png" alt="page-misc-error-light" width="500"
+                                    class="img-fluid" data-app-dark-img="illustrations/page-misc-error-dark.png"
+                                    data-app-light-img="illustrations/page-misc-error-light.png" />
+                            </div>
+                        
+                            <div class="d-flex justify-content-center mt-4 mb-4">
+                                <a href="Login_LogOut.html" class="btn btn-primary mx-auto fs-4 fw-bold">登出</a>
+                            </div>
+                        </div>
                 </div>
             </div>
 
@@ -661,14 +681,17 @@
                                 this.accordionOne.push(g.data[idx].orderNumber);
                                 if (x.ppname == "製程C-性能測試" && x.ppstate == "已完成") {
                                     x.pparea = "";
-                                    x.ppname = "生產完畢";
+                                    x.ppname = "生產完畢，等待交車";
                                 }
-                                let elapseddays = (new Date() - new Date(x.editDatetime == null ? x.orderDateTime : x.editDatetime)) / 86400000;
+                                if (x.deadlineDateTime==null) {
+                                    x.deadlineDateTime = "N/A";
+                                }
+                                let elapseddays = (new Date() - new Date(x.orderDateTime)) / 86400000;
                                 elapseddays = Math.round(elapseddays * 10) / 10;  //四捨五入至小數點下1位
                                 //console.log(elapseddays);
 
                                 let etadays = (new Date(x.deadlineDateTime) - new Date()) / 86400000;
-                                etadays =Math.round(etadays*10)/10;  //四捨五入至小數點下1位
+                                etadays = Math.round(etadays * 10) / 10;  //四捨五入至小數點下1位
                                 //console.log(etadays);
 
                                 this.dt.elapsed.push(elapseddays < 0 ? "N/A" : elapseddays);

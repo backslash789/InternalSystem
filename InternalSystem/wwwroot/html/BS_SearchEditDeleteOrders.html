@@ -199,7 +199,7 @@
                                     <div data-i18n="Account" class="fs-5">員工出勤查詢</div>
                                 </a>
                             </li>
-                            
+
 
                         </ul>
                     </li>
@@ -228,9 +228,9 @@
                             </li>
                             <li class="menu-item">
                                 <a href="BS_OrderAll.html" class="menu-link">
-                                  <div data-i18n="Account" class="fs-5">訂單一覽</div>
+                                    <div data-i18n="Account" class="fs-5">訂單一覽</div>
                                 </a>
-                              </li>
+                            </li>
                         </ul>
                     </li>
 
@@ -280,7 +280,7 @@
                             <div data-i18n="Account Settings" class="fs-4 fw-bold">產線狀況監控</div>
                         </a>
                         <ul class="menu-sub">
-                             
+
                             <li class="menu-item">
                                 <a href="BS_BugSys.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">報錯系統</div>
@@ -294,6 +294,7 @@
                         </ul>
                     </li>
 
+                    <!-- 採購系統 -->
                     <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
@@ -310,6 +311,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -319,11 +325,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -347,14 +353,14 @@
                                     <div data-i18n="Account" class="fs-5">預約會議室</div>
                                 </a>
                             </li>
-                            
+
 
                             <li class="menu-item">
                                 <a href="MT_MeetReserveSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">查詢租借紀錄/<br>建立會議記錄表</div>
                                 </a>
                             </li>
-                            
+
                             <li class="menu-item">
                                 <a href="MT_MeetRecordSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">會議記錄表查詢</div>
@@ -363,8 +369,8 @@
                         </ul>
                     </li>
 
-                    
-                    
+
+
                 </ul>
             </aside>
             <!-- /Menu -->
@@ -731,7 +737,9 @@
                                             <input type="datetime-local"
                                                    class="form-control fs-5"
                                                    id="deadline"
-                                                   v-model="deadline" />
+                                                   v-model="deadline" 
+                                                   :disabled="isdisable"
+                                                   />
                                         </div>
 
                                         <!-- ★Modal -->
@@ -812,7 +820,21 @@
 
 
 
-                    <p v-if="limit.DepID!=3 " class="fw-bold mx-2 fs-1 justify-content-center d-flex" style="text-decoration: 4pt #666EE8;">非業務部門無法查看</p>
+                    <div v-if="limit.DepID!=3" class="mt-5">
+                        <div class="d-flex justify-content-center my-4 mt-0">
+                            <h2 class="mx-2 fw-bold" style="font-size: 50px;">非業務部門無法查看</h2>
+                        </div>
+                    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/illustrations/page-misc-error-light.png" alt="page-misc-error-light" width="500"
+                                class="img-fluid" data-app-dark-img="illustrations/page-misc-error-dark.png"
+                                data-app-light-img="illustrations/page-misc-error-light.png" />
+                        </div>
+                    
+                        <div class="d-flex justify-content-center mt-4 mb-4">
+                            <a href="Login_LogOut.html" class="btn btn-primary mx-auto fs-4 fw-bold">登出</a>
+                        </div>
+                    </div>
 
                     <!-- / Content -->
                     <!-- Footer -->
@@ -1002,41 +1024,41 @@
                     this.orderdetail.push((this.carmediaone.optionalId == null) ? '' : this.carmediaone.optionalId);
                     console.log(this.orderdetail);
 
-                        //找該訂單細項第一筆OdId+8
-                        axios.get(`/api/BusinessOrderDetails/fatherandson/${this.orderid}`)
-                            .then(p => {
-                                this.odid = p.data;
-                                this.bodput = [];
-                                this.orderdetail.forEach((x, key) => {
-                                    this.bodput.push(
-                                        {
-                                            'odId': this.odid + key,
-                                            'orderId': this.orderid,
-                                            'optionalId': x
-                                        })
-                                });
-                                console.log(this.bodput);
-                                axios.put(`/api/BusinessOrders/withoutloop?ordnum=${this.ordernum}&areaid=${this.agentone.areaId}`, this.bodput)
-                                    .then(p => {
-                                        console.log(p);
-                                        //成功
-                                        this.text = "訂單修改成功!";
-                                        $("#toastSuc").fadeIn("fast");
-                                        setTimeout(() => $("#toastSuc").fadeOut(), 2000);
-                                        window.location = "BS_OrderAll.html";//promise
-
-                                    });
+                    //找該訂單細項第一筆OdId+8
+                    axios.get(`/api/BusinessOrderDetails/fatherandson/${this.orderid}`)
+                        .then(p => {
+                            this.odid = p.data;
+                            this.bodput = [];
+                            this.orderdetail.forEach((x, key) => {
+                                this.bodput.push(
+                                    {
+                                        'odId': this.odid + key,
+                                        'orderId': this.orderid,
+                                        'optionalId': x
+                                    })
                             });
+                            console.log(this.bodput);
+                            axios.put(`/api/BusinessOrders/withoutloop?ordnum=${this.ordernum}&areaid=${this.agentone.areaId}`, this.bodput)
+                                .then(p => {
+                                    console.log(p);
+                                    //成功
+                                    this.text = "訂單修改成功!";
+                                    $("#toastSuc").fadeIn("fast");
+                                    setTimeout(() => $("#toastSuc").fadeOut(), 2000);
+                                    window.location = "BS_OrderAll.html";//promise
+
+                                });
+                        });
                 },
                 btndelete() {
-                        axios.delete('/api/BusinessOrderDetails/order/' + this.ordernum)
-                            .then(d => {
-                                this.text = d.data
-                                $("#toastSuc").fadeIn("fast");
-                                setTimeout(() => $("#toastSuc").fadeOut(), 2000);
-                                //alert(`訂單刪除成功! 編號 : ${this.ordernum}`);
-                                setTimeout(() => window.location = "BS_OrderAll.html", 1000);
-                            })
+                    axios.delete('/api/BusinessOrderDetails/order/' + this.ordernum)
+                        .then(d => {
+                            this.text = d.data
+                            $("#toastSuc").fadeIn("fast");
+                            setTimeout(() => $("#toastSuc").fadeOut(), 2000);
+                            //alert(`訂單刪除成功! 編號 : ${this.ordernum}`);
+                            setTimeout(() => window.location = "BS_OrderAll.html", 1000);
+                        })
 
                 },
                 oneclick() {

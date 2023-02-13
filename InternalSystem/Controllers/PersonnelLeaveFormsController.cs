@@ -318,7 +318,7 @@ namespace InternalSystem.Controllers
                                      join l in _context.PersonnelLeaveAuditStatuses on pl.StatusId equals l.StatusId
                                      join d in _context.PersonnelDepartmentLists on o.DepartmentId equals d.DepartmentId
                                      join lt in _context.PersonnelLeaveTypes on pl.LeaveType equals lt.LeaveTypeId
-                                     where o.DepartmentId == depId && o.PositionId == position && pl.Proxy == Id
+                                     where o.DepartmentId == depId && o.PositionId <= position && o.PositionId<7 && pl.Proxy == Id
                                      && pl.StatusId == 1
                                      orderby pl.LeaveId descending
                                      select new
@@ -478,7 +478,8 @@ namespace InternalSystem.Controllers
                                          ap.DeliveryStatus,
                                          ap.ApplicationStatus,
                                          ap.ApplicationRejectStatus,
-                                         
+                                         ap.RejectReason
+
                                      };
 
             if (personnelLeaveForm == null)
@@ -795,6 +796,10 @@ namespace InternalSystem.Controllers
                         update.TotalTime = personnelLeaveForm.TotalTime;
                         update.Reason = personnelLeaveForm.Reason;
                         update.Photo = personnelLeaveForm.Photo;
+                        update.ManagerAuditDate = null;
+                        update.ManagerAudit = null;
+                        update.ProxyAudit = null;
+                        update.ProxyAuditDate = null;
                         _context.SaveChanges();
                     }
                     return Content("已重新提交申請");
@@ -824,6 +829,10 @@ namespace InternalSystem.Controllers
                     update.AuditManerger = personnelLeaveForm.AuditManerger;
                     update.TotalTime = personnelLeaveForm.TotalTime;
                     update.Reason = personnelLeaveForm.Reason;
+                    update.ManagerAuditDate = null;
+                    update.ManagerAudit = null;
+                    update.ProxyAudit = null;
+                    update.ProxyAuditDate = null;
                     _context.SaveChanges();
                 }
                 return Content("已重新提交申請");

@@ -298,7 +298,7 @@
                         </ul>
                     </li>
 
-                    <!-- 採購系統 -->
+                       <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
                     </li>
@@ -314,6 +314,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -323,11 +328,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -468,23 +473,33 @@
                                     ❌&nbsp;{{text}}
                                 </div>
                             </div>
-                            <div class="card mb-3 m-4">
+                            <div class="card m-4 my-4">
+                                <!-- 卡片標題 -->
+                                <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
+                                    <div class="col-1 my-2 mb-3" style="width: 70px;">
+                                        <img src="../assets/img/myicon/order.png" alt="" class="ms-4 mt-3" style="width: 55px;">
+                                    </div>
+                                    <div class="col-6 my-2 mb-3">
+                                        <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">報工表單</h2>
+                                    </div>
+                                </div>
+                                
                                 <div class="row card-body">
                                     <div class="row my-2">
                                         <div class="col-3">
-                                            <label for="optionalName" class="fs-5" v-on:click="show">型號: {{ProcessList.optionalName}}</label>
+                                            <label for="optionalName" class="fs-4 fw-bold" v-on:click="show">型號: {{ProcessList.optionalName}}</label>
                                             <input id="optionalName" type="hidden" class="fs-4" v-model="ProcessList.orderId" name="optionalName" />
                                         </div>
                                         <div class="col-3">
-                                            <label for="processName" class="fs-5">產線: {{ProcessList.processName}}</label>
+                                            <label for="processName" class="fs-4 fw-bold">產線: {{ProcessList.processName}}</label>
                                             <input id="processName" type="hidden" v-model="ProcessList.processId" class="fs-4" name="processName" />
                                         </div>
                                         <div class="col-3">
-                                            <label for="areaName" class="fs-5">廠區: {{ProcessList.areaName}}</label>
-                                            <input id="areaName" type="hidden" v-model="ProcessList.areaId" class="fs-4" name="processName" />
+                                            <label for="areaName" class="fs-4 fw-bold"> 廠區: {{ProcessList.areaName}}</label>
+                                            <input id="areaName" type="hidden" v-model="ProcessList.areaId" class="fs-4 " name="processName" />
                                         </div>
                                         <div class="col-3">
-                                            <label for="orderNumber" class="fs-5">訂單號碼: {{ProcessList.orderNumber}}</label>
+                                            <label for="orderNumber" class="fs-4 fw-bold">訂單號碼: {{ProcessList.orderNumber}}</label>
                                             <input id="orderNumber" type="hidden" v-model="ProcessList.orderNumber" class="fs-4" name="processName" />
                                         </div>
 
@@ -492,30 +507,30 @@
 
                                     <div class="row my-2 mb-4">
                                         <div class="col-3">
-                                            <label for="empname" class="fs-5">姓名: {{employee.Name}}</label>
-                                            <input id="empname" class="fs-5" type="hidden" name="empname" v-model="employee.EmpID" />
+                                            <label for="empname" class="fs-4 fw-bold">姓名: {{employee.Name}}</label>
+                                            <input id="empname" class="fs-4 fw-bold" type="hidden" name="empname" v-model="employee.EmpID" />
                                         </div>
 
-                                        <label for="" class="col-3 fs-5">部門: {{employee.Depment}}</label>
-                                        <label for="" class="col-1 fs-5">報工日期: </label>
+                                        <label for="" class="col-3 fs-4 fw-bold">部門: {{employee.Depment}}</label>
+                                        <label for="" class="col-2 fs-4 fw-bold">報工日期: </label>
                                         <div class="col-md-3">
-                                            <input class="form-control fs-5" v-model="Context.date" type="date" id="html5-time-input" />
+                                            <input class="form-control fs-4 fw-bold" v-model="Context.date" type="date" id="html5-time-input" />
                                         </div>
                                     </div>
 
-                                    <label for="startTime" class="col-2 fs-5 my-2">工作時間</label>
+                                    <label for="startTime" class="col-2 fs-4 fw-bold my-2">工作時間</label>
                                     <div class="col-md-3">
-                                        <input class="form-control fs-5" v-model="Context.startTime" type="time" id="startTime" />
+                                        <input class="form-control fs-4 fw-bold" v-model="Context.startTime" type="time" id="startTime" />
                                     </div>
 
-                                    <label for="endTime" class="col-1 fs-5 my-2 text-center">到</label>
+                                    <label for="endTime" class="col-1 fs-4 fw-bold my-2 text-center">到</label>
                                     <div class="col-md-3">
-                                        <input class="form-control fs-5" v-model="Context.endTime" type="time" id="endTime" />
+                                        <input class="form-control fs-4 fw-bold" v-model="Context.endTime" type="time" id="endTime" />
                                     </div>
 
                                     <div class="my-2">
-                                        <label for="exampleFormControlTextarea1" class="form-label fs-5 my-2">內容</label>
-                                        <textarea class="form-control fs-5" id="exampleFormControlTextarea1" v-model="employee.contxt" rows="8"></textarea>
+                                        <label for="exampleFormControlTextarea1" class="form-label fs-4 fw-bold my-2">內容</label>
+                                        <textarea class="form-control fs-4 fw-bold" id="exampleFormControlTextarea1" v-model="employee.contxt" rows="8"></textarea>
                                     </div>
 
                                    
@@ -643,8 +658,8 @@
                                         $("#toastSuc").fadeIn("fast");
                                         setTimeout(() => $("#toastSuc").fadeOut(), 2000);
                                         if (x.data == "成功") {
-                                            setTimeout(() => { window.location = 'index.html'; } , 1000);
-                                           
+                                            setTimeout(() => { window.location = 'index.html'; }, 1000);
+
                                         }
                                     })
                             }

@@ -200,7 +200,7 @@
                                     <div data-i18n="Account" class="fs-5">員工出勤查詢</div>
                                 </a>
                             </li>
-                            
+
 
                         </ul>
                     </li>
@@ -229,9 +229,9 @@
                             </li>
                             <li class="menu-item">
                                 <a href="BS_OrderAll.html" class="menu-link">
-                                  <div data-i18n="Account" class="fs-5">訂單一覽</div>
+                                    <div data-i18n="Account" class="fs-5">訂單一覽</div>
                                 </a>
-                              </li>
+                            </li>
                         </ul>
                     </li>
 
@@ -281,7 +281,7 @@
                             <div data-i18n="Account Settings" class="fs-4 fw-bold">產線狀況監控</div>
                         </a>
                         <ul class="menu-sub">
-                             
+
                             <li class="menu-item">
                                 <a href="BS_BugSys.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">報錯系統</div>
@@ -295,6 +295,7 @@
                         </ul>
                     </li>
 
+                    <!-- 採購系統 -->
                     <!-- 採購系統 -->
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text fs-5 fw-bold">採購系統</span>
@@ -311,6 +312,11 @@
                                 </a>
                             </li>
                             <li class="menu-item">
+                                <a href="PC_Acceptance.html" class="menu-link">
+                                    <div data-i18n="Account" class="fs-5">採購驗收區</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
                                 <a href="PC_Application.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">採購申請表</div>
                                 </a>
@@ -320,11 +326,11 @@
                                     <div data-i18n="Account" class="fs-5">採購紀錄查詢</div>
                                 </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
-                                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
-                                </a>
-                            </li>
+                            <!--<li class="menu-item">
+                <a href="PC_ApplicationRecordDetails.html" class="menu-link">
+                    <div data-i18n="Account" class="fs-5">採購紀錄細項</div>
+                </a>
+            </li>-->
                             <li class="menu-item">
                                 <a href="PC_ItemSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">物品資料查詢</div>
@@ -354,8 +360,8 @@
                                     <div data-i18n="Account" class="fs-5">查詢租借紀錄/<br>建立會議記錄表</div>
                                 </a>
                             </li>
-                            
-                            
+
+
                             <li class="menu-item">
                                 <a href="MT_MeetRecordSearch.html" class="menu-link">
                                     <div data-i18n="Account" class="fs-5">會議記錄表查詢</div>
@@ -364,8 +370,8 @@
                         </ul>
                     </li>
 
-                    
-                    
+
+
                 </ul>
             </aside>
             <!-- /Menu -->
@@ -373,12 +379,12 @@
             <div class="layout-page">
                 <!-- Navbar -->
 
-                <nav class="container" id="navInf">
+                <!--<nav class="container" id="navInf">
                     <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                         id="layout-navbar" style="height: 80px;">
-                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">-->
                             <!-- 問好 -->
-                            <div v-bind:title="message" class="navbar-nav align-items-center fs-4 mx-auto">
+                            <!--<div v-bind:title="message" class="navbar-nav align-items-center fs-4 mx-auto">
                                 😊您好
                                 <span class="fw-bold mx-2 fs-2"
                                     style="text-decoration: underline 4pt #666EE8;">{{navInf.Name}}</span>&nbsp;&nbsp;
@@ -387,13 +393,13 @@
                                     style="text-decoration: underline 4pt #666EE8;">{{navInf.EmpNumber}}</span>&nbsp;&nbsp;
                                 💻部門：
                                 <span class="fw-bold mx-2 fs-2" style="text-decoration: underline 4pt #666EE8;">{{navInf.Dep}}</span>
-                            </div>
+                            </div>-->
                             <!-- /問好 -->
                 
-                            <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <!--<ul class="navbar-nav flex-row align-items-center ms-auto">-->
                 
                                 <!-- User -->
-                                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <!--<li class="nav-item navbar-dropdown dropdown-user dropdown">
                                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                         <div class="avatar ">
                                             <img :src="navInf.Photo" class="w-px-40 h-auto rounded-circle" />
@@ -423,14 +429,14 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>-->
                                 <!--/ User -->
-                            </ul>
+                            <!--</ul>
                 
                         </div>
-                    </nav>
+                    </nav>-->
                     <!-- / Navbar -->
-                </nav>
+                <!--</nav>-->
 
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
@@ -453,35 +459,47 @@
                         </div>
 
 
-
+                        <span class="fs-4">產線狀況監控 / </span><span class=" fw-bold fs-2">監控系統</span>
                         <div class="card mb-4 m-4">
-                            
-                            <h2 class="card-header">產線監控系統</h2>
+                            <!-- 卡片標題 -->
+                            <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
+                                <div class="col-1 my-2 mb-3" style="width: 70px;">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1713/1713139.png" alt="" class="ms-4 mt-3"
+                                        style="width: 55px;">
+                                </div>
+                                <div class="col-6 my-2 mb-3">
+                                    <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">產線監控系統</h2>
+                                </div>
+                            </div>
                             <!-- <h5 class="card-header">車輛資訊</h5> -->
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <!-- 顏色示意表 -->
                                 <div class="row">
-                                    <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-success">
-                                        -
-                                    </span>
-                                    正常
-                                    <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning">
-                                        -
-                                    </span>
-                                    待處理
-                                    <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-info">
-                                        -
-                                    </span>
-                                    處理中
-                                    <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">
-                                        -
-                                    </span>
-                                    異常
-                                    <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-secondary">
-                                        -
-                                    </span>
-                                    待指派
-
+                                    <div class="d-flex">
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-success fs-1">
+                                            -
+                                        </span>
+                                        <p class="fs-3 fw-bold me-2">正常</p>
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-warning fs-2">
+                                            -
+                                        </span>
+                                        <p class="fs-3 fw-bold me-2">待處理</p>
+                        
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-info fs-2">
+                                            -
+                                        </span>
+                                        <p class="fs-3 fw-bold me-2">處理中</p>
+                        
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger fs-2">
+                                            -
+                                        </span>
+                                        <p class="fs-3 fw-bold me-2">異常</p>
+                        
+                                        <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-secondary fs-2">
+                                            -
+                                        </span>
+                                        <p class="fs-3 fw-bold me-2">待指派</p>
+                                    </div>
 
                                     <!--chart.js-->
                                     <div class="row my-5">
@@ -497,7 +515,7 @@
                                     </div>
 
                                     <!-- 頁籤 -->
-                                    <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
+                                    <ul class="nav nav-pills mb-4 nav-fill" role="tablist">
                                         <li class="nav-item">
                                             <button @click="btnpageclick" type="button"
                                                     class="nav-link active"
@@ -534,6 +552,7 @@
                                                 <span v-if="cntix>0" class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">{{cntix}}</span>
                                             </button>
                                         </li>
+                                        <br><br><br>
                                     </ul>
 
 
@@ -557,7 +576,12 @@
 
 
 
-                                    <div class="tab-content" style="box-shadow: 0px 0px 0px;">
+                                    <div class="tab-content border border-5 border-warning" style="box-shadow: 0px 0px 0px;position: relative;">
+                                        <br><br>
+                                        <!-- 篩選樣板 -->
+                                        <p class="badge rounded-pill alert alert-warning text-black fs-3 mb-1 fw-bold col-2"
+                                            style="position: absolute;top: -25px;left: 20px;">
+                                            製程目前情形</p>
 
 
 
@@ -1479,7 +1503,7 @@
             methods: {
                 statebtnclick(e) {
                     var cartype;
-                    var areaId = e.target.innerHTML.toString().trim().substring(23,24);
+                    var areaId = e.target.innerHTML.toString().trim().substring(23, 24);
                     var processId = e.target.innerHTML.toString().trim().substring(2, 3);
                     var pid;
                     (e.target.innerHTML.toString().indexOf("m4") > 0) ? cartype = 'M4 Competition' : (e.target.innerHTML.toString().indexOf("x7") > 0) ? cartype = 'X7 xDrive40i' : cartype = 'iX xDrive40 旗艦版'

@@ -465,7 +465,8 @@
                                 ❌&nbsp;{{text}}
                             </div>
                         </div>
-                          <h4 class="fw-bold py-4 mb-4 ms-4">> 出缺勤查詢</h4>
+                        <span class="fs-4">請假/加班申請 / </span><span class=" fw-bold fs-2">出缺勤查詢</span>
+
                           <div class="card mb-4 m-4">
                             <!-- 卡片標題 -->
                             <div class="d-flex bg-info" style="border-radius: 8px 8px 0px 0px;">
@@ -473,12 +474,13 @@
                                     <img src="../assets/img/myicon/eye.png" alt="" class="ms-4 mt-3" style="width: 55px;">
                                 </div>
                                 <div class="col-6 my-2 mb-3">
-                                    <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">個人請假資料查詢</h2>
+                                    <h2 class="card-header fw-bold text-black" style="padding-top: 25px;">個人出勤資料查詢</h2>
                                 </div>
                             </div>
 
                             <div class="card-body">
                               <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                <!-- 從這裡複製 -->
                                 <br>
                                 <div class="my-4 d-flex mx-4 border border-5 rounded inputCard2" style="position: relative;">
                                     <!-- 篩選樣板 -->
@@ -487,6 +489,7 @@
                                         查詢條件</p>
 
                                     <div class="col d-flex mt-5 mb-5 mx-4">
+                                        <!-- 複製到這 -->
                                         <label for="html5-month-input" class="me-2 badge rounded-pill bg-primary fs-4 mb-1 fw-bold mylLable">查詢月份</label>
                                         <div class="col-3">
                                             <input class="form-control fs-5 myinput" type="month" v-model="employeedata.date" id="html5-month-input" />
@@ -516,15 +519,15 @@
                                               <td><i class="fab fa-angular fa-lg text-danger"></i> <strong class="fs-5 fw-bold">{{item.employeeName}}</strong></td></td>
                                               <td class="fs-5 fw-bold">{{item.employeeNumber}}</td>
                                               <td>
-                                                  <span class="label-primary">{{item.date}}</span>
+                                                  <span class="label-primary fs-5 fw-bold ">{{item.date}}</span>
                                               </td>
                                               <td>
-                                                  <span class="label-primary">{{item.attendTime}}</span>
+                                                  <span class="label-primary  fs-5 fw-bold ">{{item.attendTime}}</span>
                                               </td>
-                                              <td>
+                                              <!-- <td>
 
-                                                  <!--<span class="label-primary" >出勤</span>-->
-                                              </td>
+                                                  <span class="label-primary" >出勤</span>
+                                              </td> -->
                                           </tr>
 
                                       </tbody>
@@ -532,21 +535,21 @@
                               </div>
                               <nav aria-label="Page navigation example" class="justify-content-center d-flex">
                                   <ul class="pagination">
-                                      <li class="page-item">
+                                      <!--<li class="page-item">
                                           <a class="page-link" href="#" aria-label="Previous">
                                               <span aria-hidden="true">&laquo;</span>
                                           </a>
-                                      </li>
+                                      </li>-->
                                       <li class="page-item" v-for="(item,key) in page"><button class="page-link" @click="find(item)">{{key+1}}</button></li>
 
-                                      <li class="page-item">
+                                      <!--<li class="page-item">
                                           <a class="page-link" href="#" aria-label="Next">
                                               <span aria-hidden="true">&raquo;</span>
                                           </a>
-                                      </li>
+                                      </li>-->
                                   </ul>
-                                  <span v-if="page!=0" class="fs-5">第{{nowpage}}頁/共{{page}}頁</span>
                               </nav>
+                                  <span v-if="page!=0" class="fs-5  fw-bold  justify-content-center d-flex">第{{nowpage}}頁/共{{page}}頁</span>
 
                           <!--/ Basic Bootstrap Table -->
                             </div>
