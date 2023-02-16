@@ -3,8 +3,7 @@
 
 
 
-業務系統及監控系統影片demo :
-https://sendvid.com/yuj15gxe
+
 
 
 
