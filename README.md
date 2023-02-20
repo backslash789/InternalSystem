@@ -2,8 +2,8 @@
 內部系統
 
 
-業務系統DEMO:
-https://streamable.com/knmw64
+期末專題-業務系統及監控系統(包含報錯功能)DEMO:
+https://streamable.com/4yv6pf
 
 
 
